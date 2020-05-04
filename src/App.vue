@@ -1,32 +1,55 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <!-- 头部区域 -->
+    <mt-header fixed title="幻云小说"></mt-header>
+    <!-- 视图区域 -->
+    <router-view class="body"/>
+    <!-- 底部tabbar -->
+    <mt-tabbar v-model="routerSelected" fixed>
+      <mt-tab-item id="/index">
+        <span class="iconfont icon-index" slot="icon"></span>
+        首页
+      </mt-tab-item>
+      <mt-tab-item id="/category">
+        分类
+        <span class="iconfont icon-fenlei" slot="icon"></span>
+      </mt-tab-item>
+      <mt-tab-item id="/explore">
+        <span class="iconfont icon-faxian" slot="icon"></span>
+        发现
+      </mt-tab-item>
+      <mt-tab-item id="/home">
+        <span class="iconfont icon-user" slot="icon"></span>
+        我的
+      </mt-tab-item>
+    </mt-tabbar>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      // 默认选择的路由是首页
+      routerSelected: '/index'
+    }
+  },
+  watch: {
+    routerSelected () {
+      this.$router.push(this.routerSelected)
+    }
+  }
+}
+</script>>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.mint-header {
+  background-color: orangered !important;
 }
-
-#nav {
-  padding: 30px;
+.is-selected {
+  color: orangered !important;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.body {
+  margin-top: 40px;
 }
 </style>

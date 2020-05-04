@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "455044",
+      "name": "index",
+      "font_class": "index",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "838239",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "1484888",
+      "name": "lock",
+      "font_class": "lock",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "4933309",
+      "name": "发现",
+      "font_class": "faxian",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "7016911",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    }
+  ]
+}
