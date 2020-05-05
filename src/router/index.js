@@ -1,33 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+const Index = () => import(/* webpackChunkName: "index" */ '../views/Index.vue')
+const BookInfo = () => import(/* webpackChunkName: "index" */ '../views/BookInfo.vue')
+
+const Category = () => import(/* webpackChunkName: "category" */ '../views/Category.vue')
+const Explore = () => import(/* webpackChunkName: "explore" */ '../views/Explore.vue')
+const Home = () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    redirect: '/index'
-  },
-  {
-    path: '/index',
-    name: 'Index',
-    component: () => import(/* webpackChunkName: "index" */ '../views/Index.vue')
-  },
-  {
-    path: '/category',
-    name: 'Category',
-    component: () => import(/* webpackChunkName: "category" */ '../views/Category.vue')
-  },
-  {
-    path: '/explore',
-    name: 'Explore',
-    component: () => import(/* webpackChunkName: "explore" */ '../views/Explore.vue')
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
-  },
+  { path: '/', redirect: '/index' },
+  { path: '/index', name: 'Index', component: Index },
+  { path: '/bookinfo/:id', name: 'BookInfo', component: BookInfo },
+  { path: '/category', name: 'Category', component: Category },
+  { path: '/explore', name: 'Explore', component: Explore },
+  { path: '/home', name: 'Home', component: Home },
   {
     path: '/about',
     name: 'About',

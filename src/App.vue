@@ -1,28 +1,21 @@
 <template>
   <div id="app">
     <!-- 头部区域 -->
-    <mt-header fixed title="幻云小说"></mt-header>
+    <van-nav-bar title="turb novel" placeholder fixed>
+      <template #right>
+        <van-icon name="search" size="18" />
+      </template>
+    </van-nav-bar>
     <!-- 视图区域 -->
-    <router-view class="body"/>
+    <!-- <transition name="slide-fade" mode="out-in"><router-view /></transition> -->
+    <router-view />
     <!-- 底部tabbar -->
-    <mt-tabbar v-model="routerSelected" fixed>
-      <mt-tab-item id="/index">
-        <span class="iconfont icon-index" slot="icon"></span>
-        首页
-      </mt-tab-item>
-      <mt-tab-item id="/category">
-        分类
-        <span class="iconfont icon-fenlei" slot="icon"></span>
-      </mt-tab-item>
-      <mt-tab-item id="/explore">
-        <span class="iconfont icon-faxian" slot="icon"></span>
-        发现
-      </mt-tab-item>
-      <mt-tab-item id="/home">
-        <span class="iconfont icon-user" slot="icon"></span>
-        我的
-      </mt-tab-item>
-    </mt-tabbar>
+    <van-tabbar v-model="active" active-color="orange" inactive-color="#000" route placeholder>
+      <van-tabbar-item replace to="/index" icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item replace to="/category" icon="label-o">分类</van-tabbar-item>
+      <van-tabbar-item replace to="/explore" icon="search">发现</van-tabbar-item>
+      <van-tabbar-item replace to="/home" icon="user-o">我的</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
@@ -31,25 +24,30 @@ export default {
   data() {
     return {
       // 默认选择的路由是首页
-      routerSelected: '/index'
-    }
-  },
-  watch: {
-    routerSelected () {
-      this.$router.push(this.routerSelected)
+      active: '/index'
     }
   }
 }
 </script>>
 
-<style>
-.mint-header {
-  background-color: orangered !important;
+<style lang="less">
+#app {
+  // overflow-x: hidden;
 }
-.is-selected {
-  color: orangered !important;
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .3s ease;
 }
-.body {
-  margin-top: 40px;
+.slide-fade-leave-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-fade-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 </style>
